@@ -1,5 +1,4 @@
 import { ApolloServer,gql } from "apollo-server";
-import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 import './DbConnector.js'
 import './Models/Quotes.js'
 import './Models/User.js'
@@ -21,10 +20,7 @@ const context=({req})=>{
 const server=new ApolloServer({
     typeDefs,
     resolvers,
-    context,
-    plugins:[
-        ApolloServerPluginLandingPageGraphQLPlayground()
-    ]
+    context
 })
 
 server.listen().then(({url})=>{
